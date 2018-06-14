@@ -1,6 +1,6 @@
 package com.paysafe.cinemareservationwebapi.repository.movie;
 
-import com.paysafe.cinemareservationwebapi.service.Movie;
+import com.paysafe.cinemareservationwebapi.service.movie.Movie;
 
 import java.util.UUID;
 

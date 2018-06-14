@@ -1,6 +1,6 @@
 package com.paysafe.cinemareservationwebapi.repository.hall;
 
-import com.paysafe.cinemareservationwebapi.service.Hall;
+import com.paysafe.cinemareservationwebapi.service.hall.Hall;
 
 import java.util.UUID;
 

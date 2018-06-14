@@ -1,4 +1,4 @@
-package com.paysafe.cinemareservationwebapi.service;
+package com.paysafe.cinemareservationwebapi.service.movie;
 
 import com.paysafe.cinemareservationwebapi.repository.movie.MovieEntity;
 import com.paysafe.cinemareservationwebapi.repository.movie.MovieRepository;

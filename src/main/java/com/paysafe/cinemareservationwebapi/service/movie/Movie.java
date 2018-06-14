@@ -1,4 +1,4 @@
-package com.paysafe.cinemareservationwebapi.service;
+package com.paysafe.cinemareservationwebapi.service.movie;
 
 public class Movie {
 
