@@ -1,0 +1,9 @@
+spring:
+    datasource:
+        url: jdbc:mysql://
+        username:
+        password:
+        driver-class-name:
+
+    jpa:
+      database-platform:
