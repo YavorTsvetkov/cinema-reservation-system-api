@@ -1,12 +1,28 @@
 package com.paysafe.cinemareservationwebapi.service.movie;
 
+import java.util.UUID;
+
 public class Movie {
 
-  public final String name;
-  public final Integer duration;
+  private final Long id;
+  private final String name;
+  private final int durationInMinutes;
 
-  public Movie(String name, Integer duration) {
+  public Movie(Long id, String name, int durationInMinutes) {
+    this.id = id;
     this.name = name;
-    this.duration = duration;
+    this.durationInMinutes = durationInMinutes;
+  }
+
+  public Long getId() {
+    return id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public int getDurationInMinutes() {
+    return durationInMinutes;
   }
 }

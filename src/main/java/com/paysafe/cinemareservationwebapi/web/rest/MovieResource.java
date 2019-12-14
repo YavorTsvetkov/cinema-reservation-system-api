@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -12,79 +13,37 @@ import javax.validation.constraints.NotNull;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class MovieResource {
 
+    private Long id;
+    private String name;
+    private int durationInMinutes;
 
-
-
-  @NotNull
-  public DecisionTableAttribute.DataType dataType;
-
-  @NotNull
-  public DecisionTableAttribute.AttributeType attributeType;
-
-  @Valid
-  public AttributeEnrichmentInfoResource enrichmentInfo;
-
-  @Valid
-  public AttributePredefinedEnrichmentInfoResource predefinedValuesInfo;
-
-  public AttributeEnrichmentInfoResource getEnrichmentInfo() {
-    return enrichmentInfo;
-  }
-
-  public AttributePredefinedEnrichmentInfoResource getPredefinedValuesInfo() {
-    return predefinedValuesInfo;
-  }
-
-  static class AttributeEnrichmentInfoResource {
-
-    @NotEmpty
-    public String url;
-
-    @NotNull
-    public AttributeEnrichmentInfo.Method httpMethod;
-
-    public String jsonBody;
-
-    @NotEmpty
-    public String responsePropertyPathSelector;
-
-    public String getUrl() {
-      return url;
+    public MovieResource(Long id, String name, int durationInMinutes) {
+        this.id = id;
+        this.name = name;
+        this.durationInMinutes = durationInMinutes;
     }
 
-    public AttributeEnrichmentInfo.Method getHttpMethod() {
-      return httpMethod;
+    public Long getId() {
+        return id;
     }
 
-    public String getResponsePropertyPathSelector() {
-      return responsePropertyPathSelector;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    AttributeEnrichmentInfo toDomainObject() {
-      return new AttributeEnrichmentInfo(url, httpMethod, jsonBody, responsePropertyPathSelector);
+    public String getName() {
+        return name;
     }
-  }
 
-  static class AttributePredefinedEnrichmentInfoResource extends AttributeEnrichmentInfoResource {
-
-    public Map<String, String> arrayItemStructure;
-
-    @Override
-    AttributePredefinedEnrichmentInfo toDomainObject() {
-
-      Map<String, String> itemStructure = new HashMap<>();
-      if (arrayItemStructure != null) {
-        itemStructure = arrayItemStructure;
-      }
-
-      return new AttributePredefinedEnrichmentInfo(
-          url, httpMethod, jsonBody, responsePropertyPathSelector, itemStructure);
+    public void setName(String name) {
+        this.name = name;
     }
-  }
 
+    public int getDurationInMinutes() {
+        return durationInMinutes;
+    }
 
-
-
-
-
+    public void setDurationInMinutes(int durationInMinutes) {
+        this.durationInMinutes = durationInMinutes;
+    }
 }

@@ -11,36 +11,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
-public class ProjectionEntity {
+class ProjectionEntity {
 
   @Id
-  private UUID id;
+  UUID id;
 
   @ManyToOne
-  private MovieEntity movie;
+  MovieEntity movie;
 
   @OneToOne
-  private HallEntity hall;
-
-  public ProjectionEntity() { }
-
-  public MovieEntity getMovie() {
-    return movie;
-  }
-
-  public void setMovie(MovieEntity movie) {
-    this.movie = movie;
-  }
-
-  public HallEntity getHall() {
-    return hall;
-  }
-
-  public void setHall(HallEntity hall) {
-    this.hall = hall;
-  }
-
-  public UUID getId() {
-    return id;
-  }
+  HallEntity hall;
 }

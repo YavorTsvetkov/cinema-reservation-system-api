@@ -11,42 +11,21 @@ import javax.persistence.Id;
 public class HallEntity {
 
   @Id
-  private UUID id;
-  private String name;
-  private Integer numberOfSeats;
-
-  public HallEntity() {}
-
-  public HallEntity(String name, Integer numberOfSeats) {
-    this.name = name;
-    this.numberOfSeats = numberOfSeats;
-  }
-
-  public String getName() {
-    return name;
-  }
+  UUID id;
+  String name;
+  Integer numberOfSeats;
 
   public Hall toDomainObject() {
     return new Hall(this.name, this.numberOfSeats);
   }
 
-  public static HallEntity toEntity(Hall hall) {
-    return new HallEntity(hall.name, hall.numberOfSeats);
-  }
+  public static HallEntity toEntity(Hall domainObject) {
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    HallEntity entity = new HallEntity();
 
-  public Integer getNumberOfSeats() {
-    return numberOfSeats;
-  }
+    entity.name = domainObject.name;
+    entity.numberOfSeats = domainObject.numberOfSeats;
 
-  public void setNumberOfSeats(Integer numberOfSeats) {
-    this.numberOfSeats = numberOfSeats;
-  }
-
-  public UUID getId() {
-    return id;
+    return entity;
   }
 }

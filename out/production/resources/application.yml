@@ -1,9 +1,14 @@
 spring:
-    datasource:
-        url: jdbc:mysql://
-        username:
-        password:
-        driver-class-name:
-
-    jpa:
-      database-platform:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect:
+          org.hibernate.dialect.H2Dialect
+  datasource:
+    driver-class-name: org.h2.Driver
+    initialize: false
+  h2:
+    console:
+      enabled: true

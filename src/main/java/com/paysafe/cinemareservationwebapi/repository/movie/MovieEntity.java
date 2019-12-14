@@ -2,8 +2,6 @@ package com.paysafe.cinemareservationwebapi.repository.movie;
 
 import com.paysafe.cinemareservationwebapi.service.movie.Movie;
 
-import java.util.UUID;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -11,42 +9,20 @@ import javax.persistence.Id;
 public class MovieEntity {
 
   @Id
-  private UUID id;
+  private Long id;
   private String name;
   private Integer duration;
 
-  public MovieEntity() {}
-
-  public MovieEntity(String name, Integer duration) {
-    this.name = name;
-    this.duration = duration;
-  }
-
   public Movie toDomainObject() {
-    return new Movie(this.name, this.duration);
+    return new Movie(this.id, this.name, this.duration);
   }
 
-  public static MovieEntity toEntity(Movie movie) {
-    return new MovieEntity(movie.name, movie.duration);
-  }
+  public static MovieEntity toEntity(Movie domainObject) {
 
-  public String getName() {
-    return name;
-  }
+    MovieEntity entity = new MovieEntity();
+    entity.name = domainObject.getName();
+    entity.duration = domainObject.getDurationInMinutes();
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public Integer getDuration() {
-    return duration;
-  }
-
-  public void setDuration(Integer duration) {
-    this.duration = duration;
-  }
-
-  public UUID getId() {
-    return id;
+    return entity;
   }
 }

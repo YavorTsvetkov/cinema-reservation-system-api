@@ -1,20 +1,19 @@
 package com.paysafe.cinemareservationwebapi.repository.movie;
 
-import com.paysafe.cinemareservationwebapi.service.movie.Movie;
-
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface  MovieRepository extends JpaRepository<MovieEntity, UUID> {
+public interface MovieRepository extends JpaRepository<MovieEntity, Long> {
 
-  Movie findByName(String name);
 
-  boolean exists(String name);
+    Optional<MovieEntity> findByName(String name);
 
-  @Query("UPDATE MovieEntity m SET m.name=?0, m.duration=?1 WHERE M.id=?2")
-  void update(String name, Integer duration, UUID id);
+    boolean exists(Long movieId);
+
+//  @Query("UPDATE MovieEntity m SET m.name=?0, m.duration=?1 WHERE M.id=?2")
+//  void update(String name, Integer duration, UUID id);
 }
