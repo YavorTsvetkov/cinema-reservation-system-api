@@ -34,7 +34,8 @@ public class MovieService {
         return movieEntity.get().toDomainObject();
     }
 
-    public boolean exists(UUID movieId) {
+    public boolean exists(Long movieId) {
+
         if (movieId == null) {
             throw new RuntimeException("Movie name cannot be null!");
         }

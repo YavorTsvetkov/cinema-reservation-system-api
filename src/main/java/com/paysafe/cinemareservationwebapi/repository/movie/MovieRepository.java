@@ -10,6 +10,8 @@ import java.util.UUID;
 public interface MovieRepository extends JpaRepository<MovieEntity, Long> {
 
 
+    MovieEntity save(MovieEntity movieEntity);
+
     Optional<MovieEntity> findByName(String name);
 
     boolean exists(Long movieId);
